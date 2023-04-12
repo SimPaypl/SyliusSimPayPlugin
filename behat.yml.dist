@@ -47,6 +47,8 @@ default:
             bootstrap: tests/Application/config/bootstrap.php
             kernel:
                 class: Tests\EightLines\SyliusSimPayPlugin\Application\Kernel
+                path: tests/Application/Kernel.php
+                environment: test
 
         FriendsOfBehat\VariadicExtension: ~
 
