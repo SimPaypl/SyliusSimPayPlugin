@@ -1,0 +1,11 @@
+eightlines:
+    sylius_simpay_plugin:
+        gateway_configuration:
+            api_key:
+                not_blank: Klucz API nie został podany.
+            api_password:
+                not_blank: Hasło API nie zostało podane.
+            service_id:
+                not_blank: ID usługi nie zostało podane.
+            service_api_key:
+                not_blank: Klucz API usługi nie został podany.   

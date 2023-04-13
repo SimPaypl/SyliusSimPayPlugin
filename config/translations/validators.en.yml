@@ -1,0 +1,11 @@
+eightlines:
+    sylius_simpay_plugin:
+        gateway_configuration:
+            api_key:
+                not_blank: The API key has not been provided.
+            api_password:
+                not_blank: The API password has not been provided.
+            service_id:
+                not_blank: The service ID has not been provided.
+            service_api_key:
+                not_blank: The service API key has not been provided.

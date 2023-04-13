@@ -1,0 +1,7 @@
+eightlines:
+    sylius_simpay_plugin:
+        api_key: API key
+        api_password: API password
+        service_id: Service ID
+        service_api_key: Service API key
+        gateway_label: SimPay
