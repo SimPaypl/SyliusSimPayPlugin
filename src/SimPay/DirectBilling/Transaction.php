@@ -1,0 +1,98 @@
+<?php
+
+declare(strict_types=1);
+
+namespace EightLines\SyliusSimPayPlugin\SimPay\DirectBilling;
+
+use EightLines\SyliusSimPayPlugin\SimPay\SimPayHttpClient;
+use EightLines\SyliusSimPayPlugin\SimPay\SimPayServiceAuthorization;
+use Webmozart\Assert\Assert;
+
+final class Transaction
+{
+    private ?float $amount;
+
+    private ?string $amountType = 'net';
+
+    private ?string $description;
+
+    private ?string $control;
+
+    private ?string $afterUrl;
+
+    public function __construct(
+        private SimPayHttpClient $simPayHttpClient,
+        private SimPayServiceAuthorization $serviceAuthorization,
+    ) { }
+
+    public function setAmount(float $amount): Transaction
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    public function setDescription(string $description): Transaction
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function setControl(string $control): Transaction
+    {
+        $this->control = $control;
+
+        return $this;
+    }
+
+    public function setAfterUrl(string $afterUrl): Transaction
+    {
+        $this->afterUrl = $afterUrl;
+
+        return $this;
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
+    public function make(): ?array
+    {
+        Assert::notNull($this->amount, 'Amount is required');
+        Assert::notNull($this->amountType, 'Amount type is required');
+        Assert::notNull($this->afterUrl, 'After URL is required');
+        Assert::notNull($this->control, 'Control is required');
+
+        $payload = [
+            'amount' => $this->amount,
+            'amountType' => $this->amountType,
+            'description' => $this->description ?? '',
+            'control' => $this->control,
+            'returns' => [
+                'success' => $this->afterUrl,
+                'failure' => $this->afterUrl,
+            ],
+        ];
+
+        $payload['signature'] = $this->getSignature($payload);
+
+        return $this->simPayHttpClient->saveTransaction(
+            $this->serviceAuthorization->serviceId,
+            $payload
+        );
+    }
+
+    /**
+     * @param array<string, mixed> $payload
+     */
+    private function getSignature(array $payload): string
+    {
+        $payload['success'] = $payload['returns']['success'];
+        $payload['failure'] = $payload['returns']['failure'];
+        $payload['hashKey'] = $this->serviceAuthorization->serviceApiKey;
+
+        unset($payload['returns']);
+
+        return hash('sha256', implode('|', $payload));
+    }
+}
