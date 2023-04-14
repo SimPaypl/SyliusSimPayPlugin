@@ -1,0 +1,2 @@
+eightlines_sylius_simpay_plugin:
+    resource: "@EightLinesSyliusSimPayPlugin/config/routing.yml"
