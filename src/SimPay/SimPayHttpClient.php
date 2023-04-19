@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\SimPay;
+namespace SimPay\SyliusSimPayPlugin\SimPay;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;

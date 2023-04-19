@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\Exception;
+namespace SimPay\SyliusSimPayPlugin\Exception;
 
 use Exception;
 

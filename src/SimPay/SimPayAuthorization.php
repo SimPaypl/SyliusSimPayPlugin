@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\SimPay;
+namespace SimPay\SyliusSimPayPlugin\SimPay;
 
 final class SimPayAuthorization
 {

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\SimPay\DirectBilling;
+namespace SimPay\SyliusSimPayPlugin\SimPay\DirectBilling;
 
-use EightLines\SyliusSimPayPlugin\SimPay\DirectBilling\Exception\NotificationException;
-use EightLines\SyliusSimPayPlugin\SimPay\SimPayAuthorization;
-use EightLines\SyliusSimPayPlugin\SimPay\SimPayHttpClient;
-use EightLines\SyliusSimPayPlugin\SimPay\SimPayServiceAuthorization;
+use SimPay\SyliusSimPayPlugin\SimPay\DirectBilling\Exception\NotificationException;
+use SimPay\SyliusSimPayPlugin\SimPay\SimPayAuthorization;
+use SimPay\SyliusSimPayPlugin\SimPay\SimPayHttpClient;
+use SimPay\SyliusSimPayPlugin\SimPay\SimPayServiceAuthorization;
 use JsonException;
 
 final class DirectBilling

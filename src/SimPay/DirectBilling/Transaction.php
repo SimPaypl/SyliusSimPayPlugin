@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\SimPay\DirectBilling;
+namespace SimPay\SyliusSimPayPlugin\SimPay\DirectBilling;
 
-use EightLines\SyliusSimPayPlugin\SimPay\SimPayHttpClient;
-use EightLines\SyliusSimPayPlugin\SimPay\SimPayServiceAuthorization;
+use SimPay\SyliusSimPayPlugin\SimPay\SimPayHttpClient;
+use SimPay\SyliusSimPayPlugin\SimPay\SimPayServiceAuthorization;
 use Webmozart\Assert\Assert;
 
 final class Transaction
