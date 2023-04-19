@@ -3,8 +3,8 @@
     <services>
         <defaults public="true" autoconfigure="false" autowire="false"/>
 
-        <service id="eightlines.sylius_simpay_plugin.gateway_factory" class="Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder">
-            <argument>EightLines\SyliusSimPayPlugin\SimPayGatewayFactory</argument>
+        <service id="simpay.sylius_simpay_plugin.gateway_factory" class="Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder">
+            <argument>SimPay\SyliusSimPayPlugin\SimPayGatewayFactory</argument>
             <tag name="payum.gateway_factory_builder" factory="simpay" />
         </service>
     </services>

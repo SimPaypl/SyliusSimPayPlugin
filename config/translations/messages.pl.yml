@@ -1,4 +1,4 @@
-eightlines:
+simpay:
     sylius_simpay_plugin:
         api_key: Klucz API
         api_password: Hasło API

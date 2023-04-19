@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
-final class EightLinesSyliusSimPayExtension extends Extension
+final class SimPaySyliusSimPayExtension extends Extension
 {
     /**
      * @psalm-suppress UnusedVariable

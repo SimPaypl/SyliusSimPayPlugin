@@ -1,4 +1,4 @@
-eightlines:
+simpay:
     sylius_simpay_plugin:
         gateway_configuration:
             api_key:

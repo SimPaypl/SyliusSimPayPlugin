@@ -7,7 +7,7 @@ namespace SimPay\SyliusSimPayPlugin;
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class EightLinesSyliusSimPayPlugin extends Bundle
+final class SimPaySyliusSimPayPlugin extends Bundle
 {
     use SyliusPluginTrait;
 
