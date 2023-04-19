@@ -1,5 +1,5 @@
-eightlines_sylius_simpay_plugin_simpay_payment_notify:
+simpay_sylius_simpay_plugin_simpay_payment_notify:
     path: /payment/simpay/notify
-    methods: [GET, PUT, POST]
+    methods: [POST]
     defaults:
-        _controller: eightlines.sylius_simpay_plugin.controller.simpay_payment_notify
+        _controller: simpay.sylius_simpay_plugin.controller.simpay_payment_notify

@@ -3,7 +3,7 @@
     <services>
         <defaults public="true" autoconfigure="false" autowire="false" />
 
-        <service id="eightlines.sylius_simpay_plugin.bridge.simpay_directbilling_bridge"
-                 class="EightLines\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridge" />
+        <service id="simpay.sylius_simpay_plugin.bridge.simpay_directbilling_bridge"
+                 class="SimPay\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridge" />
     </services>
 </container>

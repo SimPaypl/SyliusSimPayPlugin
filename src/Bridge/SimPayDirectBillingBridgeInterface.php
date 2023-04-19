@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\Bridge;
+namespace SimPay\SyliusSimPayPlugin\Bridge;
 
-use EightLines\SyliusSimPayPlugin\SimPay\DirectBilling\Notification;
-use EightLines\SyliusSimPayPlugin\SimPay\DirectBilling\Transaction;
+use SimPay\SyliusSimPayPlugin\SimPay\DirectBilling\Notification;
+use SimPay\SyliusSimPayPlugin\SimPay\DirectBilling\Transaction;
 
 interface SimPayDirectBillingBridgeInterface
 {

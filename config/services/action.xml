@@ -3,22 +3,22 @@
     <services>
         <defaults public="true" autoconfigure="false" autowire="false" />
 
-        <service id="eightlines.sylius_simpay_plugin.action.capture" class="EightLines\SyliusSimPayPlugin\Action\CaptureAction">
-            <argument type="service" id="eightlines.sylius_simpay_plugin.bridge.simpay_directbilling_bridge" />
+        <service id="simpay.sylius_simpay_plugin.action.capture" class="SimPay\SyliusSimPayPlugin\Action\CaptureAction">
+            <argument type="service" id="simpay.sylius_simpay_plugin.bridge.simpay_directbilling_bridge" />
             <tag name="payum.action" factory="simpay" alias="payum.action.capture" />
         </service>
 
-        <service id="eightlines.sylius_simpay_plugin.action.notify" class="EightLines\SyliusSimPayPlugin\Action\NotifyAction">
-            <argument type="service" id="eightlines.sylius_simpay_plugin.bridge.simpay_directbilling_bridge" />
+        <service id="simpay.sylius_simpay_plugin.action.notify" class="SimPay\SyliusSimPayPlugin\Action\NotifyAction">
+            <argument type="service" id="simpay.sylius_simpay_plugin.bridge.simpay_directbilling_bridge" />
             <tag name="payum.action" factory="simpay" alias="payum.action.notify" />
         </service>
 
-        <service id="eightlines.sylius_simpay_plugin.action.status" class="EightLines\SyliusSimPayPlugin\Action\StatusAction">
-            <argument type="service" id="eightlines.sylius_simpay_plugin.bridge.simpay_directbilling_bridge" />
+        <service id="simpay.sylius_simpay_plugin.action.status" class="SimPay\SyliusSimPayPlugin\Action\StatusAction">
+            <argument type="service" id="simpay.sylius_simpay_plugin.bridge.simpay_directbilling_bridge" />
             <tag name="payum.action" factory="simpay" alias="payum.action.status "/>
         </service>
 
-        <service id="eightlines.sylius_simpay_plugin.action.convert_payment" class="EightLines\SyliusSimPayPlugin\Action\ConvertPaymentAction">
+        <service id="simpay.sylius_simpay_plugin.action.convert_payment" class="SimPay\SyliusSimPayPlugin\Action\ConvertPaymentAction">
             <tag name="payum.action" factory="simpay" alias="payum.action.convert_payment" />
         </service>
     </services>

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\Action;
+namespace SimPay\SyliusSimPayPlugin\Action;
 
 use ArrayAccess;
-use EightLines\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridgeInterface;
+use SimPay\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridgeInterface;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;

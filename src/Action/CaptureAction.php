@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\Action;
+namespace SimPay\SyliusSimPayPlugin\Action;
 
-use EightLines\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridgeInterface;
-use EightLines\SyliusSimPayPlugin\Exception\SimPayException;
+use SimPay\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridgeInterface;
+use SimPay\SyliusSimPayPlugin\Exception\SimPayException;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;

@@ -3,7 +3,7 @@
     <services>
         <defaults public="true" autoconfigure="false" autowire="false" />
 
-        <service id="eightlines.sylius_simpay_plugin.controller.simpay_payment_notify" class="EightLines\SyliusSimPayPlugin\Controller\SimPayController">
+        <service id="simpay.sylius_simpay_plugin.controller.simpay_payment_notify" class="SimPay\SyliusSimPayPlugin\Controller\SimPayController">
             <tag name="controller.service_arguments" />
 
             <call method="setContainer">

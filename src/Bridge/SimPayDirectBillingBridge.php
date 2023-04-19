@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace EightLines\SyliusSimPayPlugin\Bridge;
+namespace SimPay\SyliusSimPayPlugin\Bridge;
 
-use EightLines\SyliusSimPayPlugin\SimPay\DirectBilling\DirectBilling;
-use EightLines\SyliusSimPayPlugin\SimPay\DirectBilling\Exception\NotificationException;
-use EightLines\SyliusSimPayPlugin\SimPay\DirectBilling\Notification;
-use EightLines\SyliusSimPayPlugin\SimPay\DirectBilling\Transaction;
-use EightLines\SyliusSimPayPlugin\SimPay\SimPayAuthorization;
-use EightLines\SyliusSimPayPlugin\SimPay\SimPayServiceAuthorization;
+use SimPay\SyliusSimPayPlugin\SimPay\DirectBilling\DirectBilling;
+use SimPay\SyliusSimPayPlugin\SimPay\DirectBilling\Exception\NotificationException;
+use SimPay\SyliusSimPayPlugin\SimPay\DirectBilling\Notification;
+use SimPay\SyliusSimPayPlugin\SimPay\DirectBilling\Transaction;
+use SimPay\SyliusSimPayPlugin\SimPay\SimPayAuthorization;
+use SimPay\SyliusSimPayPlugin\SimPay\SimPayServiceAuthorization;
 use JsonException;
 use Webmozart\Assert\Assert;
 
