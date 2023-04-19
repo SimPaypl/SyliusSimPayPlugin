@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Tests\EightLines\SyliusSimPayPlugin\Application\Kernel;
+use Tests\SimPay\SyliusSimPayPlugin\Application\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
