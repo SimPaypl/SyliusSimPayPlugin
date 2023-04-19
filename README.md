@@ -1,122 +1,92 @@
-<p align="center">
-    <a href="https://sylius.com" target="_blank">
-        <img src="https://demo.sylius.com/assets/shop/img/logo.png" />
-    </a>
-</p>
 
-<h1 align="center">Plugin Skeleton</h1>
+# SimPay SyliusSimPayPlugin
+Integration of SimPay DirectBilling payments with Sylius application.
 
-<p align="center">Skeleton for starting Sylius plugins.</p>
+---
 
-## Documentation
+## Table of Content
 
-For a comprehensive guide on Sylius Plugins development please go to Sylius documentation,
-there you will find the <a href="https://docs.sylius.com/en/latest/plugin-development-guide/index.html">Plugin Development Guide</a>, that is full of examples.
+* [Overview](#overview)
+* [Installation](#installation)
+* [Configuration](#configuration)
+  * [Service](#service)
+  * [Payment Method](#payment-method)
+  * [Testing Mode](#testing-mode)
+* [Contact](#contact)
 
-## Quickstart Installation
 
-### Traditional
+---
 
-1. Run `composer create-project sylius/plugin-skeleton ProjectName`.
+## Overview
 
-2. From the plugin skeleton root directory, run the following commands:
+The SyliusSimPayPlugin integrates [SimPay DirectBilling payments](https://www.simpay.pl/) with Sylius applications. 
+After installing it you should be able to enable SimPay payment method (based on DirectBilling) in your web store.
 
-    ```bash
-    $ (cd tests/Application && yarn install)
-    $ (cd tests/Application && yarn build)
-    $ (cd tests/Application && APP_ENV=test bin/console assets:install public)
-    
-    $ (cd tests/Application && APP_ENV=test bin/console doctrine:database:create)
-    $ (cd tests/Application && APP_ENV=test bin/console doctrine:schema:create)
-    ```
+---
 
-To be able to set up a plugin's database, remember to configure you database credentials in `tests/Application/.env` and `tests/Application/.env.test`.
+## Why should I choose SimPay?
 
-### Docker
+* Easy and fast integration – our plugin is inuitive to use, so you can handle the integration even without much skill.
+* Instant earnings – we will send you profits from online payments every day.
+* Safety and continuous technical support – we guarantee proper security for all payments. And in case of problems with the integration or operation of SimPay systems, we immediately respond with support.
 
-1. Execute `docker compose up -d`
+---
 
-2. Initialize plugin `docker compose exec app make init`
+## Installation
 
-3. See your browser `open localhost`
+Firstly you should run the following command to install the plugin:
 
-## Usage
+```bash
+$ composer require simpay/sylius-simpay-plugin
+```
 
-### Running plugin tests
+After that, you should enable the plugin in your `config/bundles.php` file:
 
-  - PHPUnit
+```php
+return [
+    SimPay\SyliusSimPayPlugin\SimPaySyliusSimPayPLugin::class => ['all' => true],
+]
+```
 
-    ```bash
-    vendor/bin/phpunit
-    ```
+Tada! You have installed the plugin. Now you let's configure it.
 
-  - PHPSpec
+---
 
-    ```bash
-    vendor/bin/phpspec run
-    ```
+## Configuration
+To correctly configure the plugin, you have to visit [the SimPay website](https://www.simpay.pl/) and create an account.
 
-  - Behat (non-JS scenarios)
+### Service
+Then you should create **a new DirectBilling Service**. During this process you will be asked to provide some data. The most important is the second step.
 
-    ```bash
-    vendor/bin/behat --strict --tags="~@javascript"
-    ```
+When you reach it, you should provide data like:
+* Adres API,
+* Adres Przekierowania (after success)
+* Adres Przekierowania (after failure)
 
-  - Behat (JS scenarios)
- 
-    1. [Install Symfony CLI command](https://symfony.com/download).
- 
-    2. Start Headless Chrome:
-    
-      ```bash
-      google-chrome-stable --enable-automation --disable-background-networking --no-default-browser-check --no-first-run --disable-popup-blocking --disable-default-apps --allow-insecure-localhost --disable-translate --disable-extensions --no-sandbox --enable-features=Metal --headless --remote-debugging-port=9222 --window-size=2880,1800 --proxy-server='direct://' --proxy-bypass-list='*' http://127.0.0.1
-      ```
-    
-    3. Install SSL certificates (only once needed) and run test application's webserver on `127.0.0.1:8080`:
-    
-      ```bash
-      symfony server:ca:install
-      APP_ENV=test symfony server:start --port=8080 --dir=tests/Application/public --daemon
-      ```
-    
-    4. Run Behat:
-    
-      ```bash
-      vendor/bin/behat --strict --tags="@javascript"
-      ```
-    
-  - Static Analysis
-  
-    - Psalm
-    
-      ```bash
-      vendor/bin/psalm
-      ```
-      
-    - PHPStan
-    
-      ```bash
-      vendor/bin/phpstan analyse -c phpstan.neon -l max src/  
-      ```
+The first one should be the URL of your Sylius application with `/payment/simpay/notify` suffix. The last two should be the same as your Sylius application URL.
 
-  - Coding Standard
-  
-    ```bash
-    vendor/bin/ecs check
-    ```
+### Payment Method
+After creating the service, you should go to your Sylius application and create a new **SimPay Payment Method**.
+In **Gateway Configuration** you should provide four important values:
+* API key
+* API Password 
+* Service ID
+* Service API key
 
-### Opening Sylius with your plugin
+The first two you can find in your SimPay account on the API tab. `API key` is the `Klucz API` and `API Password` is the `Hasło API`.
+The last two you can find in your SimPay account on the **Services Tab**.
+`Service ID` is in the header of the **Service Details** (the number after `Szczegóły usługi ID`) and `Service API key` is in the `Klucz API` field.
 
-- Using `test` environment:
+The last option you can configure is `Amount Type` which can be `Net` or `Gross`. It depends on the type of your prices in Sylius.
 
-    ```bash
-    (cd tests/Application && APP_ENV=test bin/console sylius:fixtures:load)
-    (cd tests/Application && APP_ENV=test bin/console server:run -d public)
-    ```
-    
-- Using `dev` environment:
+### Testing Mode
+When you are on the **Details Tab of the Service**, you should also **pay attention to the state of your testing mode**.
 
-    ```bash
-    (cd tests/Application && APP_ENV=dev bin/console sylius:fixtures:load)
-    (cd tests/Application && APP_ENV=dev bin/console server:run -d public)
-    ```
+**Testing mode is enabled by default**. It means that you can test your payments without any costs.
+When you want to start selling your products, you should change the state of this. Then you will be able to receive payments from your customers.
+
+---
+
+## Contact
+
+Do you have an issue with integration or want to learn more? Write to kontakt@simpay.pl
