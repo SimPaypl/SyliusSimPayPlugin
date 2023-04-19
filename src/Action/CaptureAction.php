@@ -59,6 +59,10 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface, Generic
         /** @var OrderInterface $order */
         $order = $request->getFirstModel()->getOrder();
 
+        if ($order->getCurrencyCode() !== 'PLN') {
+            throw new SimPayException('Only PLN currency is supported.');
+        }
+
         /** @var TokenInterface $token */
         $token = $request->getToken();
 
