@@ -4,4 +4,8 @@ simpay:
         api_password: Hasło API
         service_id: ID usługi
         service_api_key: Klucz API usługi
+        amount_type:
+            label: "Typ kwoty"
+            net: 'Netto'
+            gross: 'Brutto'
         gateway_label: SimPay

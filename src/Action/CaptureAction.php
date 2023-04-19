@@ -42,6 +42,8 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface, Generic
             (int) $api['simpay_service_id'],
             $api['simpay_service_api_key'],
         );
+
+        $this->simPayDirectBillingBridge->setAmountType($api['simpay_amount_type']);
     }
 
     /**

@@ -24,6 +24,7 @@ final class SimPayGatewayFactory extends GatewayFactory
                 'simpay_api_password' => '',
                 'simpay_service_id' => '',
                 'simpay_service_api_key' => '',
+                'simpay_amount_type' => '',
             ];
 
             $config->defaults($config['payum.default_options']);
@@ -33,6 +34,7 @@ final class SimPayGatewayFactory extends GatewayFactory
                 'simpay_api_password',
                 'simpay_service_id',
                 'simpay_service_api_key',
+                'simpay_amount_type',
             ];
 
             $config['payum.api'] = static function (ArrayObject $config): array {
@@ -43,6 +45,7 @@ final class SimPayGatewayFactory extends GatewayFactory
                     'simpay_api_password' => $config['simpay_api_password'],
                     'simpay_service_id' => $config['simpay_service_id'],
                     'simpay_service_api_key' => $config['simpay_service_api_key'],
+                    'simpay_amount_type' => $config['simpay_amount_type'],
                 ];
             };
         }
