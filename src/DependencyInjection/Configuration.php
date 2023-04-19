@@ -14,7 +14,7 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('eight_lines_sylius_sim_pay_plugin');
+        $treeBuilder = new TreeBuilder('sim_pay_sylius_sim_pay_plugin');
         $rootNode = $treeBuilder->getRootNode();
 
         return $treeBuilder;
