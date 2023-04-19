@@ -10,7 +10,7 @@ use JsonException;
 
 final class Notification
 {
-    public array $payload;
+    private array $payload;
 
     private SimPayServiceAuthorization $serviceAuthorization;
 
