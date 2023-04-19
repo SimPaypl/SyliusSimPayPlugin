@@ -2,8 +2,6 @@
 # SimPay SyliusSimPayPlugin
 Integration of SimPay DirectBilling payments with Sylius application.
 
----
-
 ## Table of Content
 
 * [Overview](#overview)
@@ -14,23 +12,16 @@ Integration of SimPay DirectBilling payments with Sylius application.
   * [Testing Mode](#testing-mode)
 * [Contact](#contact)
 
-
----
-
 ## Overview
 
 The SyliusSimPayPlugin integrates [SimPay DirectBilling payments](https://www.simpay.pl/) with Sylius applications. 
 After installing it you should be able to enable SimPay payment method (based on DirectBilling) in your web store.
-
----
 
 ## Why should I choose SimPay?
 
 * Easy and fast integration – our plugin is inuitive to use, so you can handle the integration even without much skill.
 * Instant earnings – we will send you profits from online payments every day.
 * Safety and continuous technical support – we guarantee proper security for all payments. And in case of problems with the integration or operation of SimPay systems, we immediately respond with support.
-
----
 
 ## Installation
 
@@ -48,9 +39,14 @@ return [
 ]
 ```
 
-Tada! You have installed the plugin. Now you let's configure it.
+Then import routing in your `config/routes.yaml` file:
 
----
+```yaml
+simpay_sylius_simpay_plugin:
+    resource: "@SimPaySyliusSimPayPlugin/config/routing.yml"
+```
+
+Tada! You have installed the plugin. Now you let's configure it.
 
 ## Configuration
 To correctly configure the plugin, you have to visit [the SimPay website](https://www.simpay.pl/) and create an account.
@@ -84,8 +80,6 @@ When you are on the **Details Tab of the Service**, you should also **pay attent
 
 **Testing mode is enabled by default**. It means that you can test your payments without any costs.
 When you want to start selling your products, you should change the state of this. Then you will be able to receive payments from your customers.
-
----
 
 ## Contact
 
