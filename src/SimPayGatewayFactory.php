@@ -9,12 +9,15 @@ use Payum\Core\GatewayFactory;
 
 final class SimPayGatewayFactory extends GatewayFactory
 {
+    public const FACTORY_NAME = 'simpay';
+    public const FACTORY_TITLE = 'SimPay';
+
     protected function populateConfig(ArrayObject $config): void
     {
         $config->defaults(
             [
-                'payum.factory_name' => 'simpay',
-                'payum.factory_title' => 'SimPay',
+                'payum.factory_name' => self::FACTORY_NAME,
+                'payum.factory_title' => self::FACTORY_TITLE,
             ]
         );
 
