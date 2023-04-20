@@ -82,8 +82,8 @@ final class SimPayGatewayConfigurationType extends AbstractType
                 [
                     'label' => 'simpay.sylius_simpay_plugin.amount_type.label',
                     'choices' => [
-                        'simpay.sylius_simpay_plugin.amount_type.net' => SimPayDirectBillingBridgeInterface::AMOUNT_TYPE_NET,
-                        'simpay.sylius_simpay_plugin.amount_type.gross' => SimPayDirectBillingBridgeInterface::AMOUNT_TYPE_GROSS,
+                        'simpay.sylius_simpay_plugin.amount_type.choices.net' => SimPayDirectBillingBridgeInterface::AMOUNT_TYPE_NET,
+                        'simpay.sylius_simpay_plugin.amount_type.choices.gross' => SimPayDirectBillingBridgeInterface::AMOUNT_TYPE_GROSS,
                     ],
                 ]
             )

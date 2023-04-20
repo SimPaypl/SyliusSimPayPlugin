@@ -1,11 +1,12 @@
 simpay:
     sylius_simpay_plugin:
+        gateway_label: SimPay
         api_key: API key
         api_password: API password
         service_id: Service ID
         service_api_key: Service API key
         amount_type:
-            label: "Amount type"
-            net: 'Net'
-            gross: 'Gross'
-        gateway_label: SimPay
+            label: Amount type
+            choices:
+                net: Net
+                gross: Gross
