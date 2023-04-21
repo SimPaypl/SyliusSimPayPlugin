@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace SimPay\SyliusSimPayPlugin\Form\Type;
 
+use SimPay\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridgeInterface;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -71,6 +73,17 @@ final class SimPayGatewayConfigurationType extends AbstractType
                                 'groups' => ['sylius'],
                             ]
                         ),
+                    ],
+                ]
+            )
+            ->add(
+                'simpay_amount_type',
+                ChoiceType::class,
+                [
+                    'label' => 'simpay.sylius_simpay_plugin.amount_type.label',
+                    'choices' => [
+                        'simpay.sylius_simpay_plugin.amount_type.choices.net' => SimPayDirectBillingBridgeInterface::AMOUNT_TYPE_NET,
+                        'simpay.sylius_simpay_plugin.amount_type.choices.gross' => SimPayDirectBillingBridgeInterface::AMOUNT_TYPE_GROSS,
                     ],
                 ]
             )

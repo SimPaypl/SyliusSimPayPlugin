@@ -1,0 +1,3 @@
+simpay_sylius_simpay_plugin_payment:
+    resource: "@SimPaySyliusSimPayPlugin/config/routing/payment.yml"
+    prefix: /

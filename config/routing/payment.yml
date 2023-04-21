@@ -1,0 +1,5 @@
+simpay_sylius_simpay_plugin_simpay_payment_notify:
+    path: /payment/simpay/notify
+    methods: [POST]
+    defaults:
+        _controller: simpay.sylius_simpay_plugin.controller.simpay_payment_notify

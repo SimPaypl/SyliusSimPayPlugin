@@ -1,0 +1,14 @@
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <defaults public="true" autoconfigure="false" autowire="false" />
+
+        <service id="simpay.sylius_simpay_plugin.controller.simpay_payment_notify" class="SimPay\SyliusSimPayPlugin\Controller\SimPayController">
+            <tag name="controller.service_arguments" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+    </services>
+</container>

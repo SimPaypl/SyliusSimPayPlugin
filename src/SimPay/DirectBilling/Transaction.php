@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace SimPay\SyliusSimPayPlugin\SimPay\DirectBilling;
 
+use SimPay\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridgeInterface;
 use SimPay\SyliusSimPayPlugin\SimPay\SimPayHttpClient;
 use SimPay\SyliusSimPayPlugin\SimPay\SimPayServiceAuthorization;
 use Webmozart\Assert\Assert;
@@ -11,8 +12,6 @@ use Webmozart\Assert\Assert;
 final class Transaction
 {
     private ?float $amount;
-
-    private ?string $amountType = 'net';
 
     private ?string $description;
 
@@ -23,6 +22,7 @@ final class Transaction
     public function __construct(
         private SimPayHttpClient $simPayHttpClient,
         private SimPayServiceAuthorization $serviceAuthorization,
+        private string $amountType = 'gross',
     ) { }
 
     public function setAmount(float $amount): Transaction
@@ -62,6 +62,10 @@ final class Transaction
         Assert::notNull($this->amountType, 'Amount type is required');
         Assert::notNull($this->afterUrl, 'After URL is required');
         Assert::notNull($this->control, 'Control is required');
+        Assert::true(
+            $this->amountType === SimPayDirectBillingBridgeInterface::AMOUNT_TYPE_GROSS || $this->amountType === SimPayDirectBillingBridgeInterface::AMOUNT_TYPE_NET,
+            'Amount type is invalid'
+        );
 
         $payload = [
             'amount' => $this->amount,
