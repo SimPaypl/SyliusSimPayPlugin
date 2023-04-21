@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Acme\SyliusExamplePlugin\DependencyInjection;
+namespace SimPay\SyliusSimPayPlugin\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -14,7 +14,7 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('acme_sylius_example_plugin');
+        $treeBuilder = new TreeBuilder('sim_pay_sylius_sim_pay_plugin');
         $rootNode = $treeBuilder->getRootNode();
 
         return $treeBuilder;

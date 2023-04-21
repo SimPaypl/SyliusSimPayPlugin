@@ -1,11 +1,7 @@
 {
-    "name": "sylius/plugin-skeleton",
+    "name": "simpay/sylius-simpay-plugin",
     "type": "sylius-plugin",
-    "description": "Acme example plugin for Sylius.",
-    "keywords": [
-        "sylius",
-        "sylius-plugin"
-    ],
+    "description": "SimPay payment plugin for Sylius applications",
     "license": "MIT",
     "require": {
         "php": "^8.0",
@@ -64,8 +60,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Acme\\SyliusExamplePlugin\\": "src/",
-            "Tests\\Acme\\SyliusExamplePlugin\\": "tests/"
+            "SimPay\\SyliusSimPayPlugin\\": "src/",
+            "Tests\\SimPay\\SyliusSimPayPlugin\\": "tests/"
         }
     },
     "autoload-dev": {

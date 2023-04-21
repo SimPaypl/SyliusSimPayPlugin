@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Acme\SyliusExamplePlugin;
+namespace SimPay\SyliusSimPayPlugin;
 
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class AcmeSyliusExamplePlugin extends Bundle
+final class SyliusSimPayPlugin extends Bundle
 {
     use SyliusPluginTrait;
 
