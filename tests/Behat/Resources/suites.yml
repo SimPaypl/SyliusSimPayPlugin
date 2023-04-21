@@ -4,4 +4,4 @@ default:
             contexts: []
 
             filters:
-                tags: "@paying_with_sim_pay"
+                tags: "@paying_with_simpay"
