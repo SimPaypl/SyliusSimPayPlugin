@@ -21,7 +21,7 @@ final class SimPayGatewayFactory extends GatewayFactory
             ]
         );
 
-        if (false === (bool)$config['payum.api']) {
+        if (false === (bool) $config['payum.api']) {
             $config['payum.default_options'] = [
                 'simpay_api_key' => '',
                 'simpay_api_password' => '',
