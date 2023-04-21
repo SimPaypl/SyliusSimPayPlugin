@@ -38,6 +38,8 @@
                  class="Tests\SimPay\SyliusSimPayPlugin\Behat\Page\External\SimPayCheckoutPage"
                  parent="sylius.behat.page"
                  public="false">
+            <argument type="service" id="simpay.sylius_simpay_plugin.behat.service.mocker.simpay_api_mocker" />
+            <argument type="service" id="sylius.repository.payment_security_token" />
         </service>
     </services>
 </container>
