@@ -46,7 +46,14 @@ simpay_sylius_simpay_plugin:
     resource: "@SimPaySyliusSimPayPlugin/config/routing.yml"
 ```
 
-Tada! You have installed the plugin. Now you let's configure it.
+And finally, import configuration in your `config/packages/_sylius.yaml` file:
+
+```yaml
+imports:
+    - { resource: "@SimPaySyliusSimPayPlugin/config/config.yml" }
+```
+
+Tada! You have installed the plugin. Now let's configure it.
 
 ## Configuration
 To correctly configure the plugin, you have to visit [the SimPay website](https://www.simpay.pl/) and create an account.

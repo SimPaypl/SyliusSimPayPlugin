@@ -27,7 +27,7 @@ final class DefaultPaymentMethodResolver implements DefaultPaymentMethodResolver
             throw new UnresolvedDefaultPaymentMethodException();
         }
 
-        Assert::isInstanceOf($paymentMethods[0], PaymentMethodInterface::class,);
+        Assert::isInstanceOf($paymentMethods[0], PaymentMethodInterface::class);
 
         return $paymentMethods[0];
     }
