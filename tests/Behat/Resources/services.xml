@@ -2,6 +2,42 @@
 
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <defaults public="true" autowire="false" autoconfigure="false" />
+        <defaults public="true" autowire="true" autoconfigure="true" />
+
+        <!-- Contexts -->
+        <service id="simpay.sylius_simpay_plugin.behat.context.setup.simpay_context"
+                 class="Tests\SimPay\SyliusSimPayPlugin\Behat\Context\Setup\SimPayContext">
+            <argument type="service" id="sylius.behat.shared_storage" />
+            <argument type="service" id="sylius.repository.payment_method" />
+            <argument type="service" id="sylius.fixture.example_factory.payment_method" />
+            <argument type="service" id="sylius.manager.payment_method" />
+        </service>
+
+        <service id="simpay.sylius_simpay_plugin.behat.context.setup.channel_context"
+                 class="Tests\SimPay\SyliusSimPayPlugin\Behat\Context\Setup\ChannelContext">
+            <argument type="service" id="sylius.behat.factory.default_united_states_channel" />
+            <argument type="service" id="sylius.behat.shared_storage" />
+        </service>
+
+        <service id="simpay.sylius_simpay_plugin.behat.context.ui.shop.simpay_context"
+                 class="Tests\SimPay\SyliusSimPayPlugin\Behat\Context\Ui\Shop\SimPayContext">
+            <argument type="service" id="sylius.behat.page.shop.checkout.complete" />
+            <argument type="service" id="simpay.sylius_simpay_plugin.behat.page.external.simpay_checkout_page" />
+            <argument type="service" id="sylius.behat.page.shop.order.show" />
+            <argument type="service" id="simpay.sylius_simpay_plugin.behat.service.mocker.simpay_api_mocker" />
+        </service>
+
+        <!-- Services -->
+        <service id="simpay.sylius_simpay_plugin.behat.service.mocker.simpay_api_mocker"
+                 class="Tests\SimPay\SyliusSimPayPlugin\Behat\Service\Mocker\SimPayApiMocker">
+            <argument type="service" id="sylius.behat.mocker" />
+        </service>
+
+        <!-- Pages -->
+        <service id="simpay.sylius_simpay_plugin.behat.page.external.simpay_checkout_page"
+                 class="Tests\SimPay\SyliusSimPayPlugin\Behat\Page\External\SimPayCheckoutPage"
+                 parent="sylius.behat.page"
+                 public="false">
+        </service>
     </services>
 </container>
