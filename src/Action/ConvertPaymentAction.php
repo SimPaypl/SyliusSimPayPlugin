@@ -27,11 +27,11 @@ final class ConvertPaymentAction implements ActionInterface, GatewayAwareInterfa
 
         $details = ArrayObject::ensureArrayObject($payment->getDetails());
 
-        $details['totalAmount'] = $payment->getTotalAmount();
+        $details['amount'] = $payment->getTotalAmount() / 100;
         $details['description'] = $payment->getDescription();
         $details['status'] = SimPayDirectBillingBridgeInterface::TRANSACTION_DB_NEW_STATUS;
 
-        $request->setResult((array)$details);
+        $request->setResult((array) $details);
     }
 
     public function supports($request): bool

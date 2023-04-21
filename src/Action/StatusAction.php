@@ -57,7 +57,7 @@ final class StatusAction implements ActionInterface
             $request->markCaptured();
 
         } elseif (SimPayDirectBillingBridgeInterface::TRANSACTION_DB_GENERATE_ERROR_STATUS === $transactionStatus) {
-            $request->markCanceled();
+            $request->markFailed();
 
         } else {
             $request->markUnknown();

@@ -30,6 +30,17 @@ final class SimPayDirectBillingBridge implements SimPayDirectBillingBridgeInterf
         );
     }
 
+    public function setAmountType(string $amountType): void
+    {
+        Assert::isInstanceOf(
+            $this->directBilling,
+            DirectBilling::class,
+            'You must set authorization data before setting amount type.'
+        );
+
+        $this->directBilling->setAmountType($amountType);
+    }
+
     public function createTransaction(): Transaction
     {
         Assert::isInstanceOf(

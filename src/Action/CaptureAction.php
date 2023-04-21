@@ -42,6 +42,8 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface, Generic
             (int) $api['simpay_service_id'],
             $api['simpay_service_api_key'],
         );
+
+        $this->simPayDirectBillingBridge->setAmountType($api['simpay_amount_type']);
     }
 
     /**
@@ -56,6 +58,10 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface, Generic
 
         /** @var OrderInterface $order */
         $order = $request->getFirstModel()->getOrder();
+
+        if ($order->getCurrencyCode() !== 'PLN') {
+            throw new SimPayException('Only PLN currency is supported.');
+        }
 
         /** @var TokenInterface $token */
         $token = $request->getToken();
