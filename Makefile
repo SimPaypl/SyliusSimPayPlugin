@@ -25,19 +25,13 @@ backend:
 
 frontend:
 	(cd tests/Application && yarn install --pure-lockfile)
-	(cd tests/Application && GULP_ENV=prod yarn build)
-
-frontend_windows:
-	(cd tests/Application && yarn install --pure-lockfile)
-	bin/create_node_symlink.php
+	php bin/create_node_symlink.php
 	(cd tests/Application && GULP_ENV=prod yarn build)
 
 behat:
 	APP_ENV=test vendor/bin/behat --colors --strict --no-interaction -vvv -f progress
 
 init: database install backend frontend
-
-init_windows: database install backend frontend_windows
 
 ci: init phpstan psalm phpunit phpspec behat
 

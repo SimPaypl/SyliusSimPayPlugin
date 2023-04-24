@@ -10,6 +10,7 @@ Integration of SimPay DirectBilling payments with Sylius application.
   * [Service](#service)
   * [Payment Method](#payment-method)
   * [Testing Mode](#testing-mode)
+* [Contribution](#contribution)
 * [Contact](#contact)
 
 ## Overview
@@ -82,6 +83,8 @@ The last two you can find in your SimPay account on the **Services Tab**.
 
 The last option you can configure is `Amount Type` which can be `Net` or `Gross`. It depends on the type of your prices in Sylius.
 
+***Important!*** Remember that SyliusSimPayPlugin works only with **PLN currency**, so the prices of your products should be in PLN.
+
 ### Testing Mode
 When you are on the **Details Tab of the Service**, you should also **pay attention to the state of your testing mode**.
 
@@ -90,20 +93,22 @@ When you want to start selling your products, you should change the state of thi
 
 ## Contribution
 
-If you use Docker, setup local environment with the following command
+If you use Docker, setup local environment with the following command:
+
 ```bash
 $ docker-compose up -d --build
 ```
 
-To setup the local testing Sylius instance with Plugin installed, use
+Then enter the app container:
+
 ```bash
-$ make init
+$ docker-compose exec app sh
 ```
 
-**Caution!** If you are on Windows, use the following:
+And run the following command:
 
 ```bash
-$ make init_windows
+$ make init
 ```
 
 ## Contact
