@@ -88,6 +88,24 @@ When you are on the **Details Tab of the Service**, you should also **pay attent
 **Testing mode is enabled by default**. It means that you can test your payments without any costs.
 When you want to start selling your products, you should change the state of this. Then you will be able to receive payments from your customers.
 
+## Contribution
+
+If you use Docker, setup local environment with the following command
+```bash
+$ docker-compose up -d --build
+```
+
+To setup the local testing Sylius instance with Plugin installed, use
+```bash
+$ make init
+```
+
+**Caution!** If you are on Windows, use the following:
+
+```bash
+$ make init_windows
+```
+
 ## Contact
 
 Do you have an issue with integration or want to learn more? Write to kontakt@simpay.pl
