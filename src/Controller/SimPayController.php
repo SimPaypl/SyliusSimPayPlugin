@@ -15,6 +15,6 @@ final class SimPayController extends AbstractController
         return $this->redirectToRoute('payum_notify_do', [
             'request' => $request,
             'payum_token' => $request->request->get('control'),
-        ], 308);
+        ], Response::HTTP_PERMANENTLY_REDIRECT);
     }
 }

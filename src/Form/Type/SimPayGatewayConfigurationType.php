@@ -8,14 +8,31 @@ use SimPay\SyliusSimPayPlugin\Bridge\SimPayDirectBillingBridgeInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 final class SimPayGatewayConfigurationType extends AbstractType
 {
+    public function __construct(
+        private UrlGeneratorInterface $urlGenerator,
+    ) { }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add(
+                'app_payment_notify',
+                UrlType::class,
+                [
+                    'label' => 'simpay.sylius_simpay_plugin.app_payment_notify',
+                    'required' => false,
+                    'mapped' => false,
+                    'disabled' => true,
+                    'data' => $this->urlGenerator->generate('simpay_sylius_simpay_plugin_simpay_payment_notify', [], UrlGeneratorInterface::ABSOLUTE_URL),
+                ]
+            )
             ->add(
                 'simpay_api_key',
                 TextType::class,

@@ -4,6 +4,7 @@ simpay:
         api_key: API key
         api_password: API password
         service_id: Service ID
+        app_payment_notify: Payment Notify endpoint
         service_api_key: Service API key
         amount_type:
             label: Amount type
