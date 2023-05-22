@@ -33,7 +33,7 @@ final class NotifyAction implements ActionInterface, ApiAwareInterface
         $this->simPayDirectBillingBridge->setAuthorizationData(
             $api['simpay_api_key'],
             $api['simpay_api_password'],
-            (int) $api['simpay_service_id'],
+            $api['simpay_service_id'],
             $api['simpay_service_api_key'],
         );
     }
