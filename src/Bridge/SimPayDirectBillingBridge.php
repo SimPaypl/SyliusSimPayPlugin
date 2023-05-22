@@ -20,7 +20,7 @@ final class SimPayDirectBillingBridge implements SimPayDirectBillingBridgeInterf
     public function setAuthorizationData(
         string $apiKey,
         string $apiPassword,
-        int $serviceId,
+        string $serviceId,
         string $serviceApiKey
     ): void
     {
