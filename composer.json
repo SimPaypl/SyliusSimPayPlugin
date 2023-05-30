@@ -1,5 +1,5 @@
 {
-    "name": "simpay/sylius-simpay-plugin",
+    "name": "simpaypl/sylius-simpay-plugin",
     "type": "sylius-plugin",
     "description": "SimPay payment plugin for Sylius applications",
     "license": "MIT",
