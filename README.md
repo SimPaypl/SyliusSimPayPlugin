@@ -29,7 +29,7 @@ After installing it you should be able to enable SimPay payment method (based on
 Firstly you should run the following command to install the plugin:
 
 ```bash
-$ composer require simpay/sylius-simpay-plugin
+$ composer require simpaypl/sylius-simpay-plugin
 ```
 
 After that, you should enable the plugin in your `config/bundles.php` file:
