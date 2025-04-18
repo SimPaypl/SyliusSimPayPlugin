@@ -103,7 +103,7 @@ jobs:
 
             -
                 name: Install PHP dependencies
-                run: composer install --no-interaction
+                run: composer install --optimize-autoloader --classmap-authoritative --no-interaction --prefer-dist --no-progress
                 env:
                     SYMFONY_REQUIRE: ${{ matrix.symfony }}
 
