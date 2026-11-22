@@ -20,7 +20,7 @@ final class Notification
      */
     public function __construct(
         SimPayServiceAuthorization $serviceAuthorization,
-        string $payload = null,
+        ?string $payload = null,
     ) {
         $this->serviceAuthorization = $serviceAuthorization;
         $this->payload = json_decode($payload, true, 512, JSON_THROW_ON_ERROR);

@@ -87,7 +87,7 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface, Generic
         throw new SimPayException('Unable to create transaction.');
     }
 
-    public function setGenericTokenFactory(GenericTokenFactoryInterface $genericTokenFactory = null): void
+    public function setGenericTokenFactory(?GenericTokenFactoryInterface $genericTokenFactory = null): void
     {
         $this->tokenFactory = $genericTokenFactory;
     }
